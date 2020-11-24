@@ -1,4 +1,6 @@
 import './App.css';
+import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
 import Nav from './nav/nav.jsx';
 import Courses from './courses/courses.jsx';
 import Details from './courses/courseDetails/details';
@@ -10,10 +12,17 @@ import Overview from './modules/overview/overview';
 import Type from './modules/type/type';
 import WordRain from './modules/wordRain/wordRain';
 import Transition from './modules/transition/transition';
-import { Route } from 'react-router-dom';
+import Slider from './modules/slider/slider';
+import Quiz from './modules/quiz/quiz';
+import Video from './modules/video/video';
+import CreateCourse from './courses/createCourse/createCourse';
+import InputDragDrop1 from './modules/dragdrop1/forInput/dragdrop1.input';
+import CourseMedium from './courses/createCourse/medium/course.medium';
 
 
-function App() {
+const App = () => {
+  const [openedCourse, setOpenedCourse] = useState({})
+
   return (
     <div className="App">
       <Route 
@@ -23,7 +32,7 @@ function App() {
             return (
               <>
                 <Nav {...props}/>
-                <Courses {...props}/>
+                <Courses {...props} setOpenedCourse={setOpenedCourse}/>
               </>
             )
           }
@@ -36,7 +45,31 @@ function App() {
             return (
               <>
                 <NavInside/>
-                <Details {...props} />
+                <Details {...props} openedCourse={openedCourse} />
+              </>
+            )
+          }
+        }
+      />
+      <Route 
+        exact path="/course/:courseID"
+        render = {
+          props => {
+            return (
+              <>
+                <CreateCourse {...props} />
+              </>
+            )
+          }
+        }
+      />
+      <Route 
+        exact path="/medium"
+        render = {
+          props => {
+            return (
+              <>
+                <CourseMedium {...props} />
               </>
             )
           }
@@ -61,6 +94,18 @@ function App() {
             return (
               <>
                 <DragDrop1 {...props} />
+              </>
+            )
+          }
+        }
+      />
+      <Route 
+        exact path="/input/dragdrop/1"
+        render = {
+          props => {
+            return (
+              <>
+                <InputDragDrop1 {...props} />
               </>
             )
           }
@@ -121,6 +166,42 @@ function App() {
             return (
               <>
                 <Transition {...props} />
+              </>
+            )
+          }
+        }
+      />
+      <Route 
+        exact path="/slider"
+        render = {
+          props => {
+            return (
+              <>
+                <Slider {...props} />
+              </>
+            )
+          }
+        }
+      />
+      <Route 
+        exact path="/quiz"
+        render = {
+          props => {
+            return (
+              <>
+                <Quiz {...props} />
+              </>
+            )
+          }
+        }
+      />
+      <Route 
+        exact path="/video"
+        render = {
+          props => {
+            return (
+              <>
+                <Video {...props} />
               </>
             )
           }

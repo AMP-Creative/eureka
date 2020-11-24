@@ -16,19 +16,33 @@ export default class Course extends React.Component {
         this.setState({rating: nextValue});
       }
 
+    openCourse(course){
+        this.props.setOpenedCourse(course)
+        this.props.history.push('/details')
+    }
+
     render(){
 
-        const { course, history } = this.props;
+        const { course} = this.props;
         const { rating } = this.state;
 
         return (
-                <div className="course" onClick={() => history.push('/details')}>
-                    <div className="image">
-                            <img src={course.banner} />
-                    </div>
-                    <div className="info">
-                        <div className="left">
-                            <p className="name">{course.name}</p>
+                <div className="course" onClick={() => this.openCourse(course)}>
+                    <div className="course-wrapper">
+                        <div className="image">
+                                <img src={course.banner} />
+                        </div>
+                        <div className="info">
+                            <div className="name-vote">
+                                <p className="name">{course.name}</p>
+                                <StarRatingComponent 
+                                    name="rate1" 
+                                    starCount={5}
+                                    value={rating}
+                                    className="rating"
+                                    onStarClick={this.onStarClick.bind(this)}
+                                />
+                            </div>
                             <div className="duration">
                                 <FontAwesomeIcon
                                     icon = {faClock}
@@ -36,14 +50,7 @@ export default class Course extends React.Component {
                                 />
                                 <p className="min">{course.duration_minute} mins</p>
                             </div>
-                        </div>
-                        <div className="right">
-                            <StarRatingComponent 
-                                name="rate1" 
-                                starCount={5}
-                                value={rating}
-                                onStarClick={this.onStarClick.bind(this)}
-                            />
+                            
                         </div>
                     </div>
                 </div>

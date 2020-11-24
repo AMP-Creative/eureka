@@ -1,0 +1,84 @@
+.create-container {
+    display: flex;
+    justify-content: space-between;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+
+    .content-list {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid grey;
+        min-height: 100vh;
+        padding: 10px;
+
+        .session-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 99%;
+
+            .icons {
+                width: 10%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                margin-bottom: 10px;
+
+                .duplicate-icon {
+                    margin-bottom: 10px;
+                }
+
+                .delete-icon, .duplicate-icon {
+                    color: grey;
+                    font-size: 12px;
+                }
+
+                .delete-icon:hover, .duplicate-icon:hover {
+                    color: black;
+                    cursor: pointer;
+                }
+            }
+
+            .content-shrink, .each-session {
+                border: 1px solid grey;
+                width: 90%;
+                min-height: 120px;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-color: blue;
+            }
+        }
+
+        .add-btn {
+            
+        }
+
+        .publish-btn {
+            margin-top: 10px;
+        }
+    }
+
+    .content-editor {
+        width: 80%;
+        // background-color: pink;
+    }
+
+    .module-options, .module-menu {
+        position: absolute;
+        background-color: #EDEDED;
+        left: 22%;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 500px;
+
+        .option {
+            border: 1px solid blue;
+            margin: 10px;
+            padding: 5px;
+        }
+    }
+}

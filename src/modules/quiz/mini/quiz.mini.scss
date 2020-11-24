@@ -1,0 +1,57 @@
+.mini-container {
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .ques-input {
+            border: none;
+            width: 90%;
+            text-align: center;
+        }
+
+        .ques-input:focus {
+            outline: none;
+        }
+
+        .answers {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+            .each {
+                width: 35%;
+                margin: 5px 0px 5px 0;
+                // background-color: yellow;
+                min-height: 14px;
+                display: flex;
+                align-items: center;
+                
+                
+                .ans-input {
+                    width: 95%;
+                    border: 1px solid silver;
+                    min-height: 10px;
+                    margin: 0;
+                    -moz-box-sizing: border-box; 
+                    -webkit-box-sizing: border-box; 
+                    box-sizing: border-box; 
+                }
+
+                .check-ans {
+                    margin-top: 0;
+                    z-index: 1;
+                    margin-left: calc(-40% + 8px);
+                    background-color: green;
+                    height: 8px;
+                    width: 8px;
+                    border-radius: 50%;
+                }
+                
+            }
+        }
+    }
+}
